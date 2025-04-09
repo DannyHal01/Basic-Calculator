@@ -1,6 +1,5 @@
 import tkinter as tk
-
-
+from math import *
 
 def clear():
     label.config(text="")
@@ -12,7 +11,7 @@ def press_number(number):
 
 def evaluate():
     try:
-        result = eval(label["text"])
+        result = eval(label["text"],globals())
         label.config(text=str(result))
     except ZeroDivisionError:
         label.config(text="Error: ÷0")
@@ -36,6 +35,8 @@ buttons = [
     ("4", 2, 0), ("5", 2, 1), ("6", 2, 2), ("*", 2, 3),
     ("1", 3, 0), ("2", 3, 1), ("3", 3, 2), ("-", 3, 3),
     ("0", 4, 0), ("C", 4, 1), ("=", 4, 2), ("+", 4, 3),
+    ("pi", 5, 0), ("e", 5, 1), ("sin", 5, 2), ("cos", 5, 3),
+    ("(", 7, 0), (")", 7, 1), ("%", 7, 2),
 ]
 
 for (text, row, col) in buttons:
